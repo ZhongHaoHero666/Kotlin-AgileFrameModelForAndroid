@@ -11,5 +11,5 @@ interface IView {
     /**
      * 返回[Context]对象
      */
-    abstract fun getContext(): Context
+     fun getContext(): Context
 }

@@ -1,7 +1,7 @@
 package com.android.szh.common.mvp
 
 import android.support.annotation.UiThread
-import com.android.szh.common.rx.IRxjava
+import com.android.szh.common.rx.IRxJava
 
 /**
  * @author sunzhonghao
@@ -11,7 +11,7 @@ import com.android.szh.common.rx.IRxjava
  * 持有Model层提供的数据接口对象，可通过依赖注入解耦此部分
  * 从数据接口对象中获取数据并处理，更新View
  */
-interface IPresenter<Model, View> : IRxjava {
+interface IPresenter<in View :IView> : IRxJava {
 
     /**
      * 关联MVPView到Presenter
@@ -19,7 +19,7 @@ interface IPresenter<Model, View> : IRxjava {
      * @param view MVPView实现类对象
      */
     @UiThread
-    abstract fun attachView(view: View)
+    fun attachView(view: View)
 
     /**
      * 解除关联到Presenter的MVPView(视图被销毁时调用该方法)
@@ -31,5 +31,5 @@ interface IPresenter<Model, View> : IRxjava {
      ** *
      */
     @UiThread
-    abstract fun detachView()
+    fun detachView()
 }

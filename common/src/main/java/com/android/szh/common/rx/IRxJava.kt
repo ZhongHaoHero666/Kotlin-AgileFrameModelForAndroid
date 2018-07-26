@@ -8,19 +8,19 @@ import io.reactivex.disposables.Disposable
  * @date 2018/7/25
  * desc: Observer 管理接口
  */
-interface IRxjava {
+interface IRxJava {
     /**
      * 注册 Observer CompositeDisposable中统一管理
      */
-    abstract fun add(@NonNull disposable: Disposable): Boolean
+     fun add(@NonNull disposable: Disposable): Boolean
 
     /**
-     * 取消订阅指定的[Observer]
+     * 取消订阅指定的Observer
      */
-    abstract fun remove(@NonNull disposable: Disposable): Boolean
+     fun remove(@NonNull disposable: Disposable): Boolean
 
     /**
-     * 取消订阅所有的[Observer]
+     * 取消订阅所有的Observer
      */
-    abstract fun unsubscribe()
+     fun unSubscribe()
 }

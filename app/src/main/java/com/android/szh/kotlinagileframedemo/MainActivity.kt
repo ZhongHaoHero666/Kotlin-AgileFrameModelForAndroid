@@ -1,12 +1,19 @@
 package com.android.szh.kotlinagileframedemo
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import com.android.szh.common.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity<MainPrensenter>() ,MainContract.View {
+    override fun handleResult(result: String) {
+        tv_test.text = result
     }
+
+    override fun getContentLayoutId(): Int {
+        return R.layout.activity_main
+    }
+
+    override fun initView() {
+        getPresenter().loadData()
+    }
+
 }
