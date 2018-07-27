@@ -56,7 +56,6 @@ abstract class BaseActivity<out Presenter : BasePresenter<*, *>> : AppCompatActi
      */
     private fun initMVP() {
         mPresenter = ReflexHelper.getTypeInstance(this, 0)
-        //TODO 编译期错误
         mPresenter.attachView(this)
     }
 

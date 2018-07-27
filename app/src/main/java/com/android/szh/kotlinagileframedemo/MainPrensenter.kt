@@ -7,6 +7,6 @@ package com.android.szh.kotlinagileframedemo
  */
 class MainPrensenter : MainContract.Presenter<MainModel>() {
     override fun loadData() {
-        getView()!!.handleResult(getModel()!!.loadData())
+        getView().handleResult(getModel().loadData())
     }
 }

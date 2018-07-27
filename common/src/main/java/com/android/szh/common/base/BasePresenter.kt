@@ -28,8 +28,8 @@ open class BasePresenter<out Model : IModel, View : IView> : IPresenter<View> {
         return compositeDisposable.remove(disposable)
     }
 
-    override fun attachView(view: View) {
-        this.mView = view
+    override fun attachView(view: Any) {
+        this.mView = view as View
         initModel()
     }
 
@@ -49,11 +49,11 @@ open class BasePresenter<out Model : IModel, View : IView> : IPresenter<View> {
 //        this.mModel = null
     }
 
-    fun getModel(): Model? {
+    fun getModel(): Model {
         return mModel
     }
 
-    open fun getView(): View? {
+    open fun getView(): View {
         return mView
     }
 }

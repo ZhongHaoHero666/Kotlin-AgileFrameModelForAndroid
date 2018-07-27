@@ -19,7 +19,7 @@ interface IPresenter<in View :IView> : IRxJava {
      * @param view MVPView实现类对象
      */
     @UiThread
-    fun attachView(view: View)
+    fun attachView(view: Any)
 
     /**
      * 解除关联到Presenter的MVPView(视图被销毁时调用该方法)

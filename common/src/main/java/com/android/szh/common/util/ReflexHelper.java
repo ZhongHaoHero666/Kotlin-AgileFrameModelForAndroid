@@ -4,7 +4,9 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- * Created by sunzhonghao on 2018/5/17.
+ *
+ * @author sunzhonghao
+ * @date 2018/5/17
  * desc: 反射辅助类
  */
 public class ReflexHelper {
