@@ -23,5 +23,6 @@ ext {
     okhttp3Version = "3.9.1"
     rxjavaVersion = "2.1.8"
     rxandroidVersion = "2.0.1"
-
+    logginginterceptor = "3.8.0"
+    loggerVersion = "2.1.1"
 }

@@ -44,6 +44,7 @@ dependencies {
 
     // Okhttp3(https://github.com/square/okhttp)
     api "com.squareup.okhttp3:okhttp:$okhttp3Version"
+    api "com.squareup.okhttp3:logging-interceptor:$logginginterceptor"
 
     // Rxjava2(https://github.com/ReactiveX/RxJava)
     api "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
@@ -51,7 +52,8 @@ dependencies {
     // RxAndroid(https://github.com/ReactiveX/RxAndroid)
     api "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
+    //Logger
+    api "com.orhanobut:logger:$loggerVersion"
 }
 repositories {
     mavenCentral()
