@@ -12,13 +12,12 @@ import io.reactivex.disposables.Disposable
  * @date 2018/7/25
  * desc:BasePresenter
  */
-open class BasePresenter<out Model : IModel, View : IView> : IPresenter<View> {
+open class BasePresenter<Model : IModel, View : IView> : IPresenter<View> {
 
-    private lateinit var mView: View
-    private lateinit var mModel: Model
+    protected var mView: View? = null
+    protected lateinit var mModel: Model
 
-
-    private var compositeDisposable = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable()
 
     override fun add(disposable: Disposable): Boolean {
         return compositeDisposable.add(disposable)
@@ -44,16 +43,6 @@ open class BasePresenter<out Model : IModel, View : IView> : IPresenter<View> {
     }
 
     override fun detachView() {
-        //TODO 需要了解回收策略
-//        this.mView = null
-//        this.mModel = null
-    }
-
-    fun getModel(): Model {
-        return mModel
-    }
-
-    open fun getView(): View {
-        return mView
+        this.mView = null
     }
 }

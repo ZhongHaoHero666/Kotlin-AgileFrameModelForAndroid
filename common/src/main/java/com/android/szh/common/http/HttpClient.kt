@@ -17,17 +17,17 @@ import java.util.concurrent.TimeUnit
  * @author sunzhonghao
  * @date 2018/7/30
  * desc:网路请求客户端
+ * Kotlin 中的单例模式，需要理解一个特殊的类型，这个类型叫做object，这个object可不是Java中所有类的父类（Object），
+ * 这个object 就是创建单例用的，我们都知道，Java中单例有懒汉式、饿汉式，双重检查锁等几种单例变种。但是在Kotlin中只要object一种单例实现方式。
  */
-class HttpClient private constructor() {
-    private var mRetrofit: Retrofit
+object HttpClient {
+    var mRetrofit: Retrofit
 
     init {
         val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-
         //缓存文件
         val cacheFile = File(BaseApp.context.cacheDir, "retrofitCache")
         val cache = Cache(cacheFile, HttpConfig.CACHE_SIZE) // 缓存的大小
-
 
         //httpClient
         val okHttpClient = OkHttpClient.Builder()
@@ -39,7 +39,6 @@ class HttpClient private constructor() {
                 .readTimeout(HttpConfig.CONNECT_TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(HttpConfig.CONNECT_TIME_OUT, TimeUnit.SECONDS)
                 .build()
-
 
         //retrofit
         mRetrofit = Retrofit.Builder()
@@ -83,22 +82,5 @@ class HttpClient private constructor() {
             }
             chain.proceed(originalRequest.newBuilder().url(builder.build()).build())
         }
-    }
-
-
-    /**
-     * 内部类单例模式
-     */
-    companion object {
-        fun getInstance(): HttpClient {
-            return Holder.instance
-        }
-    }
-
-    /**
-     * Holder管理
-     */
-    private object Holder {
-        val instance = HttpClient()
     }
 }

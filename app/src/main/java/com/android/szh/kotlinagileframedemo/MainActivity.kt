@@ -15,5 +15,4 @@ class MainActivity : BaseActivity<MainPrensenter>() ,MainContract.View {
     override fun initView() {
         getPresenter().loadData()
     }
-
 }

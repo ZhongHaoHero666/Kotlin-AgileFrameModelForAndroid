@@ -11,11 +11,10 @@ class UrlConfig {
 
     companion object {
         //测试环境
-        val DOMAIN_BASE_TEST = ""
+        private val DOMAIN_BASE_TEST = "http://pv.sohu.com"
         //正式环境
-        val DOMAIN_BASE_ONLINE = ""
+        private val DOMAIN_BASE_ONLINE = "http://pv.sohu.com"
 
         var DOMAIN_BASE = if (BuildConfig.DEBUG) DOMAIN_BASE_TEST else DOMAIN_BASE_ONLINE
     }
-
 }

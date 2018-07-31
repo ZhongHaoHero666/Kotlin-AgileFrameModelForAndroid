@@ -18,7 +18,6 @@ import kotlin.properties.Delegates
  */
 class BaseApp : Application() {
 
-
     companion object {
 
         private val TAG = "BaseApp"
