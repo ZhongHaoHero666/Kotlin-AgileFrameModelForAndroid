@@ -1,4 +1,4 @@
-package com.android.szh.kotlinagileframedemo
+package com.android.szh.kotlinagileframedemo.mvptest
 
 import com.android.szh.common.base.BasePresenter
 import com.android.szh.common.mvp.IModel

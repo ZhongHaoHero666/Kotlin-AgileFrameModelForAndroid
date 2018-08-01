@@ -1,4 +1,4 @@
-package com.android.szh.kotlinagileframedemo
+package com.android.szh.kotlinagileframedemo.mvptest
 
 import com.android.szh.common.http.HttpManager
 import com.android.szh.common.rx.applySchedulers

@@ -1,4 +1,4 @@
-package com.android.szh.kotlinagileframedemo
+package com.android.szh.kotlinagileframedemo.mvptest
 
 import android.text.TextUtils
 import com.android.szh.kotlinagileframedemo.entiy.CityInfo
