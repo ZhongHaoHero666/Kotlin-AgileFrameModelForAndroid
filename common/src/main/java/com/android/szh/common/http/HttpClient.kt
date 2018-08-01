@@ -1,8 +1,9 @@
 package com.android.szh.common.http
 
 import com.android.szh.common.app.BaseApp
-import com.android.szh.common.config.HttpConfig
-import com.android.szh.common.config.UrlConfig
+import com.android.szh.common.config.CACHE_SIZE
+import com.android.szh.common.config.CONNECT_TIME_OUT
+import com.android.szh.common.config.DOMAIN_BASE
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -27,7 +28,7 @@ object HttpClient {
         val loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         //缓存文件
         val cacheFile = File(BaseApp.context.cacheDir, "retrofitCache")
-        val cache = Cache(cacheFile, HttpConfig.CACHE_SIZE) // 缓存的大小
+        val cache = Cache(cacheFile, CACHE_SIZE) // 缓存的大小
 
         //httpClient
         val okHttpClient = OkHttpClient.Builder()
@@ -35,14 +36,14 @@ object HttpClient {
                 .addInterceptor(addHeaderInterceptor())             // 请求头参数
                 .addInterceptor(loggingInterceptor)                 //日志,所有的请求响应度看到
                 .cache(cache)  //添加缓存
-                .connectTimeout(HttpConfig.CONNECT_TIME_OUT, TimeUnit.SECONDS)
-                .readTimeout(HttpConfig.CONNECT_TIME_OUT, TimeUnit.SECONDS)
-                .writeTimeout(HttpConfig.CONNECT_TIME_OUT, TimeUnit.SECONDS)
+                .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
+                .readTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
+                .writeTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
                 .build()
 
         //retrofit
         mRetrofit = Retrofit.Builder()
-                .baseUrl(UrlConfig.DOMAIN_BASE)
+                .baseUrl(DOMAIN_BASE)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
