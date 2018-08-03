@@ -19,6 +19,10 @@ class MainActivity : BaseActivity<MainPrensenter>(), MainContract.View {
     }
 
     override fun initView() {
+
+    }
+
+    override fun loadData() {
         mPresenter.loadData()
     }
 }

@@ -19,6 +19,10 @@ class MainFragment : BaseFragment<MainPrensenter>(), MainContract.View {
     }
 
     override fun initView() {
+
+    }
+
+    override fun loadData() {
         mPresenter.loadData()
     }
 }
