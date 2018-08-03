@@ -12,23 +12,14 @@ import com.android.szh.common.util.ReflexHelper
  * @date 2018/7/25
  * desc:activity基类
  */
-abstract class BaseActivity<out Presenter : BasePresenter<*, *>> : AppCompatActivity(), IView {
+abstract class BaseActivity<Presenter : BasePresenter<*, *>> : AppCompatActivity(), IView {
 
-    private lateinit var mPresenter: Presenter
+    lateinit var mPresenter: Presenter
 
-    private lateinit var mContext: Context
-
+    lateinit var mContext: Context
 
     fun getPresenter(): Presenter {
         return mPresenter
-    }
-
-
-    /**
-     * @return 获取context
-     */
-    override fun getContext(): Context {
-        return mContext
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

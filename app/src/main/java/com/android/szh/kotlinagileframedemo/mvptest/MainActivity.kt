@@ -4,7 +4,7 @@ import com.android.szh.common.base.BaseActivity
 import com.android.szh.kotlinagileframedemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<MainPrensenter>() , MainContract.View {
+class MainActivity : BaseActivity<MainPrensenter>(), MainContract.View {
     override fun handleResult(result: String) {
         tv_test.text = result
     }
@@ -14,6 +14,6 @@ class MainActivity : BaseActivity<MainPrensenter>() , MainContract.View {
     }
 
     override fun initView() {
-        getPresenter().loadData()
+        mPresenter.loadData()
     }
 }
