@@ -9,7 +9,7 @@ import okhttp3.ResponseBody
 /**
  * @author sunzhonghao
  * @date 2018/7/26
- * desc:
+ * desc:MainContract
  */
 interface MainContract {
     interface Model : IModel {

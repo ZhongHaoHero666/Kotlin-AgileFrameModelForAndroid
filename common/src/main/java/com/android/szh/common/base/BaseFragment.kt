@@ -3,45 +3,51 @@ package com.android.szh.common.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.android.szh.common.mvp.IView
 import com.android.szh.common.util.ReflexHelper
 
 /**
  * @author sunzhonghao
- * @date 2018/7/25
- * desc:activity基类
+ * @date 2018/8/3
+ * desc:BaseFragment
  */
-abstract class BaseActivity<Presenter : BasePresenter<*, *>> : AppCompatActivity(), IView {
+abstract class BaseFragment<Presenter : BasePresenter<*, *>> : Fragment(), IView {
 
     lateinit var mPresenter: Presenter
         private set
     lateinit var mContext: Context
         private set
+    lateinit var rootView: View
+        private set
 
-    fun getPresenter(): Presenter {
-        return mPresenter
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        mContext = this
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mContext = this.activity!!
 
-        beforeSuper()                         // 初始化(super.onCreate(savedInstanceState)之前调用)
-
-        super.onCreate(savedInstanceState)
-
-        if (intent != null) {
-            handleIntent(intent)              // 处理Intent(主要用来获取其中携带的参数)
+        val contentLayoutID: Int = getContentLayoutId()
+        rootView = if (contentLayoutID == 0) {
+            super.onCreateView(inflater, container, savedInstanceState)!!
+        } else {
+            inflater.inflate(contentLayoutID, null)
         }
-
-        setContentView(getContentLayoutId())  // 加载页面布局
 
         initMVP()
 
+        return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //在View创建之后 initView，这样直接通过Id调用View才不会为空
         initView()
 
         loadData()
     }
+
 
     /**
      * 初始化Mvp组件
@@ -87,4 +93,5 @@ abstract class BaseActivity<Presenter : BasePresenter<*, *>> : AppCompatActivity
      * 处理页面之间传递的数据
      */
     protected open fun handleIntent(intent: Intent) {}
+
 }

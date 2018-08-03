@@ -9,7 +9,7 @@ import okhttp3.ResponseBody
 /**
  * @author sunzhonghao
  * @date 2018/7/26
- * desc:
+ * desc:MainModel
  */
 class MainModel : MainContract.Model {
     override fun loadData(): Observable<ResponseBody> {
