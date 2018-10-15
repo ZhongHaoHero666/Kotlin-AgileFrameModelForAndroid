@@ -1,4 +1,4 @@
-package com.android.szh.kotlinagileframedemo.mvptest
+package com.android.szh.kotlinagileframedemo.mvp
 
 import android.text.TextUtils
 import com.android.szh.kotlinagileframedemo.entiy.CityInfo
@@ -11,9 +11,9 @@ import java.io.IOException
 /**
  * @author sunzhonghao
  * @date 2018/7/26
- * desc:MainPrensenter
+ * desc:MVPPrensenter      MVP 架构演示类 - presenter
  */
-class MainPrensenter : MainContract.Presenter<MainModel>() {
+class MVPPrensenter : MVPContract.Presenter<MVPModel>() {
     override fun loadData() {
         mModel.loadData()
                 .subscribeBy(

@@ -1,4 +1,4 @@
-package com.android.szh.kotlinagileframedemo.mvptest
+package com.android.szh.kotlinagileframedemo.mvp
 
 import com.android.szh.common.base.BasePresenter
 import com.android.szh.common.mvp.IModel
@@ -9,9 +9,9 @@ import okhttp3.ResponseBody
 /**
  * @author sunzhonghao
  * @date 2018/7/26
- * desc:MainContract
+ * desc:MVPContract  MVP 架构演示类 - 契约接口
  */
-interface MainContract {
+interface MVPContract {
     interface Model : IModel {
         fun loadData(): Observable<ResponseBody>
     }
@@ -21,7 +21,7 @@ interface MainContract {
     }
 
 
-    abstract class Presenter<ModelImp : Model> : BasePresenter<Model, View>() {
+    abstract class Presenter<modelImp : Model> : BasePresenter<Model, View>() {
         abstract fun loadData()
     }
 }

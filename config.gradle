@@ -1,9 +1,9 @@
 ext {
     android = [ // 配置信息
-                compileSdkVersion: 27,
-                buildToolsVersion: "27.0.3",
+                compileSdkVersion: 28,
+                buildToolsVersion: "28.0.2",
                 minSdkVersion    : 19,
-                targetSdkVersion : 27,
+                targetSdkVersion : 28,
                 versionCode      : 100,
                 versionName      : "1.0.0"
     ]

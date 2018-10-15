@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.szh.kotlinagileframedemo.mvptest.MainActivity">
+    tools:context="com.android.szh.kotlinagileframedemo.mvp.MVPActivity">
 
 
     <TextView
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:layout_width="match_parent"
-        android:name="com.android.szh.kotlinagileframedemo.mvptest.MainFragment"
+        android:name="com.android.szh.kotlinagileframedemo.mvp.MVPFragment"
         android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_test"
      />
