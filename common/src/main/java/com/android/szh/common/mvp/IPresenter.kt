@@ -1,6 +1,6 @@
 package com.android.szh.common.mvp
 
-import android.support.annotation.UiThread
+import androidx.annotation.UiThread
 import com.android.szh.common.rx.IRxJava
 
 /**

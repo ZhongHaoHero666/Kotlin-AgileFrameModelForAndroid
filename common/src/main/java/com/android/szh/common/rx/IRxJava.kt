@@ -1,6 +1,6 @@
 package com.android.szh.common.rx
 
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
 import io.reactivex.disposables.Disposable
 
 /**

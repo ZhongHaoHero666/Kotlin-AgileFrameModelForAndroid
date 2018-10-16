@@ -3,7 +3,7 @@ package com.android.szh.common.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.android.szh.common.mvp.IView
 import com.android.szh.common.util.ReflexHelper
 
@@ -14,9 +14,9 @@ import com.android.szh.common.util.ReflexHelper
  */
 abstract class BaseActivity<Presenter : BasePresenter<*, *>> : AppCompatActivity(), IView {
 
-    private lateinit var mPresenter: Presenter
+    protected lateinit var mPresenter: Presenter
 
-    private lateinit var mContext: Context
+    protected lateinit var mContext: Context
 
     fun getPresenter(): Presenter {
         return mPresenter
