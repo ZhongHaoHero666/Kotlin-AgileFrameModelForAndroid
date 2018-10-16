@@ -4,7 +4,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- *
  * @author sunzhonghao
  * @date 2018/5/17
  * desc: 反射辅助类
@@ -25,11 +24,7 @@ public class ReflexHelper {
                     return ((Class<T>) actualTypeArgument).newInstance();
                 }
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassCastException e) {
+        } catch (InstantiationException | IllegalAccessException | ClassCastException e) {
             e.printStackTrace();
         }
         return null;

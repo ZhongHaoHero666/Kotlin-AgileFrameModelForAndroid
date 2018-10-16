@@ -14,10 +14,9 @@ import com.android.szh.common.util.ReflexHelper
  */
 abstract class BaseActivity<Presenter : BasePresenter<*, *>> : AppCompatActivity(), IView {
 
-    lateinit var mPresenter: Presenter
-        private set
-    lateinit var mContext: Context
-        private set
+    private lateinit var mPresenter: Presenter
+
+    private lateinit var mContext: Context
 
     fun getPresenter(): Presenter {
         return mPresenter
