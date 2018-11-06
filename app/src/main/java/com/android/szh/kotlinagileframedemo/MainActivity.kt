@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_guide)
 
         test_mvp.setOnClickListener { startActivity(Intent(this, MVPActivity::class.java)) }
-        test_mvvm.setOnClickListener { startActivity(Intent(this, MVPActivity::class.java)) }
 
     }
 }
